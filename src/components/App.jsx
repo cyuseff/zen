@@ -10,6 +10,7 @@ class App extends Component {
     super(props);
     this.state = {
       photos: [],
+      ids: {},
       width: 0,
       height: 0,
       loading: true,
@@ -31,22 +32,23 @@ class App extends Component {
 
     // Infinity Scroll
     window.addEventListener('scroll', (e) => {
-      const {current_page, total_pages, loading} = this.state;
+      const {photos, ids, current_page, total_pages, loading} = this.state;
       const current = e.srcElement.body.scrollTop;
       const limit = e.srcElement.body.scrollHeight - window.innerHeight;
       const url = `${this.props.url}&rpp=${this.props.rpp}&page=${current_page + 1}`;
 
       if(!loading && current_page < total_pages && current === limit) {
         this.setState({loading: true});
-        loadPhotos(url, this.state.photos, (window.innerWidth - gap), colWidth, space)
+        loadPhotos(url, photos, ids, (window.innerWidth - gap), colWidth, space)
           .then(state => this.setState(state))
           .catch(err => console.log(err));
       }
     });
 
     // Load initial images
-    const url = `${this.props.url}&rpp=${this.props.rpp}&page=${this.state.current_page}`;
-    loadPhotos(url, this.state.photos, (window.innerWidth - gap), colWidth, space)
+    const {photos, ids, current_page} = this.state;
+    const url = `${this.props.url}&rpp=${this.props.rpp}&page=${current_page}`;
+    loadPhotos(url, photos, ids, (window.innerWidth - gap), colWidth, space)
       .then(state => this.setState(state))
       .catch(err => console.log(err));
   }

@@ -54,7 +54,7 @@ const mapPhotos = (photos, colums, fixedW, space) => {
 
 const getWidth = (fixedW, space, length) => (fixedW + space) * length - space;
 
-const loadPhotos = (url, arr, totalW, fixedW, space) => {
+const loadPhotos = (url, arr, ids, totalW, fixedW, space) => {
   const colums = createColums(totalW, fixedW, space);
   let state;
 
@@ -63,8 +63,23 @@ const loadPhotos = (url, arr, totalW, fixedW, space) => {
       .then(res => res.text())
       .then(text => JSON.parse(text))
       .then(({photos, current_page, total_pages}) => {
-        state = {current_page, total_pages};
-        return [...arr, ...photos];
+        // remove duplicated
+        const filtered = photos.reduce((out, photo) => {
+          if(!ids[photo.id]) {
+            out.push(photo);
+            ids[photo.id] = 1;
+          }
+          return out;
+        }, []);
+
+        // save new state info
+        state = {
+          ids,
+          current_page,
+          total_pages
+        };
+
+        return [...arr, ...filtered];
       })
       .then(array => {
         const photos = mapPhotos(array, colums, fixedW, space);
