@@ -89,6 +89,8 @@ body {
         border: solid 1px $red;
         .photo-like-button {
           color: $red;
+          opacity: 1;
+          background-color: transparent;
         }
       }
 
@@ -108,7 +110,10 @@ body {
       }
 
       &:hover {
-        .photo-like-button { opacity: 1; }
+        .photo-like-button {
+          opacity: 1;
+          background-color: #FFF!important;
+        }
         .photo-name { bottom: 0; }
       }
     }

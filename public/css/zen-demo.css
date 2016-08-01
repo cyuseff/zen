@@ -67,7 +67,9 @@ body {
       .zen-body .container .photo.like {
         border: solid 1px #da0000; }
         .zen-body .container .photo.like .photo-like-button {
-          color: #da0000; }
+          color: #da0000;
+          opacity: 1;
+          background-color: transparent; }
       .zen-body .container .photo .photo-name {
         position: absolute;
         left: 0;
@@ -85,7 +87,8 @@ body {
         -ms-transition: bottom 0.2s ease-in-out;
         transition: bottom 0.2s ease-in-out; }
       .zen-body .container .photo:hover .photo-like-button {
-        opacity: 1; }
+        opacity: 1;
+        background-color: #FFF !important; }
       .zen-body .container .photo:hover .photo-name {
         bottom: 0; }
   .zen-body .loader {

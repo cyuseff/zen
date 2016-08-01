@@ -1,6 +1,6 @@
 import 'whatwg-fetch';
 
-const createData = (totalW, fixedW, space) => {
+const createColums = (totalW, fixedW, space) => {
   const heights = [];
   const length = Math.floor((totalW + space) / (fixedW + space));
   for(let i = 0; i < length; i++) {
@@ -18,8 +18,8 @@ const getSmallestIdx = (heights, length) => {
   return min;
 };
 
-const mapPhotos = (photos, data, fixedW, space) => {
-  const {heights, length} = data;
+const mapPhotos = (photos, colums, fixedW, space) => {
+  const {heights, length} = colums;
 
   return photos.map((photo, idx) => {
     const {
@@ -56,7 +56,7 @@ const mapPhotos = (photos, data, fixedW, space) => {
 const getWidth = (fixedW, space, length) => (fixedW + space) * length - space;
 
 const loadPhotos = (url, arr, totalW, fixedW, space) => {
-  const data = createData(totalW, fixedW, space);
+  const colums = createColums(totalW, fixedW, space);
   let state;
 
   return new Promise((resolve, reject) => {
@@ -68,11 +68,11 @@ const loadPhotos = (url, arr, totalW, fixedW, space) => {
         return [...arr, ...photos];
       })
       .then(array => {
-        const photos = mapPhotos(array, data, fixedW, space);
+        const photos = mapPhotos(array, colums, fixedW, space);
         Object.assign(state, {
           photos,
-          width: getWidth(fixedW, space, data.length),
-          height: Math.max(...data.heights),
+          width: getWidth(fixedW, space, colums.length),
+          height: Math.max(...colums.heights),
           loading: false
         });
         resolve(state);
@@ -82,12 +82,12 @@ const loadPhotos = (url, arr, totalW, fixedW, space) => {
 };
 
 const handleRezise = (arr, totalW, fixedW, space) => {
-  const data = createData(totalW, fixedW, space);
-  const photos = mapPhotos(arr, data, fixedW, space);
+  const colums = createColums(totalW, fixedW, space);
+  const photos = mapPhotos(arr, colums, fixedW, space);
   return Promise.resolve({
     photos,
-    width: getWidth(fixedW, space, data.length),
-    height: Math.max(...data.heights)
+    width: getWidth(fixedW, space, colums.length),
+    height: Math.max(...colums.heights)
   });
 };
 
