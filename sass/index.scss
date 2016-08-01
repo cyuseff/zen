@@ -1,6 +1,6 @@
 /* Variables */
 $header: 50px;
-$name-height: 32px;
+$info-height: 48px;
 $red: #da0000;
 
 /* Mixins*/
@@ -94,19 +94,31 @@ body {
         }
       }
 
-      .photo-name {
+      .photo-info {
         position: absolute;
         left: 0;
         right: 0;
-        height: $name-height;
-        bottom: -$name-height;
-        padding: 5px 10px;
-        background: #FFF;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
+        height: $info-height;
+        bottom: -$info-height;
 
         @include transition(bottom, .2s);
+
+        .photo-views {
+          color: #fff;
+          text-shadow: 0 0 1px #000;
+          font-size: 12px;
+          text-align: right;
+          padding: 0px 10px;
+        }
+
+        .photo-name {
+          height: 32px;
+          padding: 5px 10px;
+          background: #FFF;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+        }
       }
 
       &:hover {
@@ -114,7 +126,7 @@ body {
           opacity: 1;
           background-color: #FFF!important;
         }
-        .photo-name { bottom: 0; }
+        .photo-info { bottom: 0; }
       }
     }
   }

@@ -28,6 +28,7 @@ const mapPhotos = (photos, colums, fixedW, space) => {
       width,
       height,
       image_url,
+      times_viewed,
       like
     } = photo;
 
@@ -48,6 +49,7 @@ const mapPhotos = (photos, colums, fixedW, space) => {
       top,
       resizeH,
       resizeW: fixedW,
+      times_viewed,
       like
     };
   });

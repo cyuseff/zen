@@ -70,26 +70,34 @@ body {
           color: #da0000;
           opacity: 1;
           background-color: transparent; }
-      .zen-body .container .photo .photo-name {
+      .zen-body .container .photo .photo-info {
         position: absolute;
         left: 0;
         right: 0;
-        height: 32px;
-        bottom: -32px;
-        padding: 5px 10px;
-        background: #FFF;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
+        height: 48px;
+        bottom: -48px;
         -webkit-transition: bottom 0.2s ease-in-out;
         -moz-transition: bottom 0.2s ease-in-out;
         -o-transition: bottom 0.2s ease-in-out;
         -ms-transition: bottom 0.2s ease-in-out;
         transition: bottom 0.2s ease-in-out; }
+        .zen-body .container .photo .photo-info .photo-views {
+          color: #fff;
+          text-shadow: 0 0 1px #000;
+          font-size: 12px;
+          text-align: right;
+          padding: 0px 10px; }
+        .zen-body .container .photo .photo-info .photo-name {
+          height: 32px;
+          padding: 5px 10px;
+          background: #FFF;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden; }
       .zen-body .container .photo:hover .photo-like-button {
         opacity: 1;
         background-color: #FFF !important; }
-      .zen-body .container .photo:hover .photo-name {
+      .zen-body .container .photo:hover .photo-info {
         bottom: 0; }
   .zen-body .loader {
     text-align: center;
