@@ -1,0 +1,121 @@
+/* Variables */
+/* Mixins*/
+/* CSS */
+* {
+  box-sizing: border-box; }
+
+body {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 14px;
+  margin: 0;
+  background-color: #f1f1f1;
+  color: #666; }
+
+.zen-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  padding: 4px 20px;
+  background-color: #FFFFFF;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+  z-index: 1; }
+  .zen-header h1 {
+    margin: 0;
+    display: inline-block; }
+  .zen-header .like-count {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 1.5em;
+    float: right; }
+    .zen-header .like-count i {
+      color: #da0000; }
+
+.zen-body {
+  margin-top: 50px; }
+  .zen-body .container {
+    margin: 0 auto;
+    padding: 10px 0; }
+    .zen-body .container .inner {
+      position: relative; }
+    .zen-body .container .photo {
+      position: absolute;
+      background-color: #aaa;
+      background-size: cover;
+      background-repeat: no-repeat;
+      border-radius: 3px;
+      overflow: hidden;
+      border: solid 1px #fff;
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3); }
+      .zen-body .container .photo .photo-like-button {
+        position: absolute;
+        display: inline-block;
+        top: 5px;
+        right: 5px;
+        font-size: 16px;
+        padding: 6px 8px;
+        background-color: #FFF;
+        cursor: pointer;
+        border-radius: 3px;
+        opacity: 0;
+        -webkit-transition: opacity 0.1s ease-in-out;
+        -moz-transition: opacity 0.1s ease-in-out;
+        -o-transition: opacity 0.1s ease-in-out;
+        -ms-transition: opacity 0.1s ease-in-out;
+        transition: opacity 0.1s ease-in-out; }
+      .zen-body .container .photo.like {
+        border: solid 1px #da0000; }
+        .zen-body .container .photo.like .photo-like-button {
+          color: #da0000; }
+      .zen-body .container .photo .photo-name {
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 32px;
+        bottom: -32px;
+        padding: 5px 10px;
+        background: #FFF;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        -webkit-transition: bottom 0.2s ease-in-out;
+        -moz-transition: bottom 0.2s ease-in-out;
+        -o-transition: bottom 0.2s ease-in-out;
+        -ms-transition: bottom 0.2s ease-in-out;
+        transition: bottom 0.2s ease-in-out; }
+      .zen-body .container .photo:hover .photo-like-button {
+        opacity: 1; }
+      .zen-body .container .photo:hover .photo-name {
+        bottom: 0; }
+  .zen-body .loader {
+    text-align: center;
+    font-size: 21px;
+    margin: 10px 0; }
+
+.animate .zen-body .container .photo {
+  -webkit-transition: top .3s ease-in-out, left .3s ease-in-out;
+  -moz-transition: top .3s ease-in-out, left .3s ease-in-out;
+  -o-transition: top .3s ease-in-out, left .3s ease-in-out;
+  -ms-transition: top .3s ease-in-out, left .3s ease-in-out;
+  transition: top .3s ease-in-out, left .3s ease-in-out; }
+
+.mdi.mdi-spin {
+  -webkit-animation: mdi-spin 0.3s infinite linear;
+  animation: mdi-spin 0.3s infinite linear; }
+
+@-webkit-keyframes mdi-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg); } }
+
+@keyframes mdi-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg); } }
