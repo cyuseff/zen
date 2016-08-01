@@ -89,7 +89,7 @@ App.defaultProps = {
   colWidth: 236,
   space: 12,
   gap: 20,
-  rpp: 20,
+  rpp: 30,
   url: 'https://api.500px.com/v1/photos?feature=popular&image_size=31&consumer_key=wYcRITj1GoHZnC0mgXe0K66IL7n3aMQkxyTa5s9M'
 };
 

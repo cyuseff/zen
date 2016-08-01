@@ -1,11 +1,8 @@
 import 'whatwg-fetch';
 
 const createColums = (totalW, fixedW, space) => {
-  const heights = [];
   const length = Math.floor((totalW + space) / (fixedW + space));
-  for(let i = 0; i < length; i++) {
-    heights.push(0);
-  }
+  const heights = new Array(length).fill(0);
   return {length, heights};
 };
 
@@ -32,12 +29,12 @@ const mapPhotos = (photos, colums, fixedW, space) => {
       like
     } = photo;
 
-    const resizeH = photo.resizeH || Math.floor((height * fixedW) / width);
     const i = getSmallestIdx(heights, length);
-    const left = (fixedW + space) * i;
     const top = heights[i];
+    const left = (fixedW + space) * i;
+    const resizeH = photo.resizeH || Math.floor((height * fixedW) / width);
 
-    heights[i] = heights[i] + resizeH + space;
+    heights[i] += (resizeH + space);
 
     return {
       id,
