@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import debounce from 'lodash/debounce';
-import {loadPhotos, handleRezise} from '../actions';
+import {loadPhotos, handleRezise} from '../utils';
 
 import Header from './Header';
 import Body from './Body';
