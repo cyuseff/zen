@@ -15,5 +15,26 @@
   </body>
 
   <script src="js/zen-demo.js"></script>
+  <script>
+    /*
+      App.defaultProps = {
+        animate: false,     // enable transition animation
+        colWidth: 236,      // the width of the images
+        space: 12,          // space between images
+        gap: 20,            // scroll bar width
+        rpp: 30,            // number of requested images per call
+        url: 'some-url'     // base url to fetch
+      };
+    */
+
+    var props = {
+      animate: true
+    };
+
+    ReactDOM.render(
+      React.createElement(App, props)
+      ,document.getElementById('root')
+    );
+  </script>
 
 </html>

@@ -87,7 +87,7 @@ class App extends Component {
 }
 
 App.defaultProps = {
-  animate: true,
+  animate: false,
   colWidth: 236,
   space: 12,
   gap: 20,
