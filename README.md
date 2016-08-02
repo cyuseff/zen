@@ -1,8 +1,9 @@
 # Zenreach demo
 
 Clone the repo and run:
-1. `$npm install`
-2. `$npm start`
+
+- `$npm install`
+- `$npm start`
 
 or open ./public/index.html
 
