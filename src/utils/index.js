@@ -1,4 +1,4 @@
-import 'whatwg-fetch';
+import Fetch from './Fetch';
 
 const createColums = (totalW, fixedW, space) => {
   const length = Math.floor((totalW + space) / (fixedW + space));
@@ -59,9 +59,8 @@ const loadPhotos = (url, arr, ids, totalW, fixedW, space) => {
   let state;
 
   return new Promise((resolve, reject) => {
-    fetch(url)
-      .then(res => res.text())
-      .then(text => JSON.parse(text))
+    Fetch
+      .get(url)
       .then(({photos, current_page, total_pages}) => {
         // remove duplicated
         const filtered = photos.reduce((out, photo) => {
@@ -105,4 +104,11 @@ const handleRezise = (arr, totalW, fixedW, space) => {
   });
 };
 
-export {loadPhotos, handleRezise};
+export {
+  loadPhotos,
+  handleRezise,
+  getWidth,
+  mapPhotos,
+  getSmallestIdx,
+  createColums
+};

@@ -72,7 +72,7 @@ class App extends Component {
   render() {
     const {photos, width, height, loading, likes} = this.state;
     return (
-      <div className={`${this.props.animate ? 'animate' : ''}`}>
+      <div className={`zen-app ${this.props.animate ? 'animate' : ''}`}>
         <Header likes={likes} />
         <Body
           photos={photos}
