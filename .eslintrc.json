@@ -4,7 +4,8 @@
         "react"
     ],
     "env": {
-        "node": true
+        "node": true,
+        "mocha": true
     },
     "rules": {
       "func-names": 0,
