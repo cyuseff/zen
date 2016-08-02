@@ -2,6 +2,7 @@
 
 Clone the repo and run:
 
+- `$cd zen`
 - `$npm install`
 - `$npm start`
 
